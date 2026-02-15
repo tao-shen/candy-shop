@@ -80,6 +80,7 @@ export function SkillCreatorPage({ onComplete, onCancel }: SkillCreatorPageProps
         category: analysisResult.suggestedCategory,
         icon: '✨',
         color: 'bg-primary/10 border-primary/20 text-primary',
+        tags: [analysisResult.suggestedCategory],
         config: {
           capabilities: analysisResult.suggestedCapabilities,
           systemPrompt: analysisResult.systemPrompt,

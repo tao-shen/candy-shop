@@ -128,6 +128,7 @@ export function GitHubImportForm({ onImport, onCancel }: GitHubImportFormProps) 
       category: preview.category as any,
       icon: preview.icon,
       color: 'bg-primary/10 border-primary/20 text-primary',
+      tags: [preview.category as any],
       config: {
         capabilities: preview.capabilities,
         systemPrompt: preview.systemPrompt,
