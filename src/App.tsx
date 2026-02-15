@@ -148,6 +148,7 @@ function HomePage({
     >
       <Hero onOpenDocs={onOpenDocs} />
       <Categories
+        activeCategory={tagFilter}
         onSelectCategory={(tag) => {
           setTagFilter(tag);
           setSearchQuery('');

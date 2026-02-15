@@ -974,6 +974,25 @@ export function SkillExecutor({ skill, onClose }: SkillExecutorProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [entries]);
 
+  // ── Greeting: skill introduces itself on first open ─────────────────────
+
+  useEffect(() => {
+    if (!connected || connecting || entries.length > 0 || currentSessionId) return;
+    const greeting: AssistantEntry = {
+      type: 'assistant',
+      messageId: `greeting-${Date.now()}`,
+      parts: [{
+        id: `greeting-part-${Date.now()}`,
+        sessionID: '',
+        messageID: `greeting-${Date.now()}`,
+        type: 'text' as const,
+        text: `👋 Hi! I'm **${skill.name}**.\n\n${skill.description}\n\nHow can I help you today?`,
+      }],
+      isComplete: true,
+    };
+    setEntries([greeting]);
+  }, [connected, connecting, currentSessionId, entries.length, skill.name, skill.description]);
+
   // ── Debug: log activeQuestion state changes ─────────────────────────────
 
   useEffect(() => {
