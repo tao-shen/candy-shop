@@ -103,7 +103,7 @@ export function DebugLoopMonitor({ config, onStart, onPause, onResume, onStop }:
                 onClick={onStop}
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors"
               >
-                <Stop className="w-4 h-4" />
+                <Square className="w-4 h-4 fill-current" />
                 Stop Loop
               </button>
             </>
