@@ -13,7 +13,7 @@ export interface Skill {
   config: {
     capabilities?: string[];
     systemPrompt: string;
-    parameters: Record<string, unknown>;
+    parameters?: Record<string, unknown>;
     tools?: string[];
   };
 
