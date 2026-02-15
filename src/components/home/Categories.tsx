@@ -3,21 +3,38 @@ import { useMemo } from 'react';
 import { SKILLS_DATA, SKILL_CATEGORIES } from '../../data/skillsData';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-export function Categories({ onSelectCategory }: { onSelectCategory: (cat: string) => void }) {
+export interface TagData {
+  name: string;
+  count: number;
+  exports: string[];
+  icon?: string;
+}
+
+export function Categories({ onSelectCategory }: { onSelectCategory: (tag: string) => void }) {
   const { t } = useLanguage();
 
-  // Dynamically calculate category counts from actual skill data
-  const categories = useMemo(() => {
-    return SKILL_CATEGORIES.map(cat => {
-      const skills = SKILLS_DATA.filter(s => s.category === cat.name);
-      const topExports = skills.slice(0, 3).map(s => s.id.split('-').pop() || s.id);
-      return {
-        name: cat.name,
-        count: skills.length,
-        exports: topExports,
-        icon: cat.icon,
-      };
-    }).filter(cat => cat.count > 0); // Only show categories with skills
+  // Dynamically calculate tag counts from actual skill data
+  const tags = useMemo<TagData[]>(() => {
+    const tagMap = new Map<string, TagData>();
+
+    SKILLS_DATA.forEach((skill) => {
+      const skillTags = skill.tags.length > 0 ? skill.tags : [skill.category];
+      skillTags.forEach((tag) => {
+        const existing = tagMap.get(tag) || { name: tag, count: 0, exports: [] };
+        existing.count += 1;
+        if (existing.exports.length < 3) {
+          existing.exports.push(skill.id.split('-').pop() || skill.id);
+        }
+        // Try to match tag to category icons if possible
+        const catMatch = SKILL_CATEGORIES.find((c) => c.name === tag);
+        if (catMatch) existing.icon = catMatch.icon;
+
+        tagMap.set(tag, existing);
+      });
+    });
+
+    return Array.from(tagMap.values())
+      .sort((a, b) => b.count - a.count);
   }, []);
 
   return (
@@ -29,24 +46,24 @@ export function Categories({ onSelectCategory }: { onSelectCategory: (cat: strin
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((cat) => (
+          {tags.map((tag) => (
             <button
-              key={cat.name}
-              onClick={() => onSelectCategory(cat.name)}
+              key={tag.name}
+              onClick={() => onSelectCategory(tag.name)}
               className="group bg-card p-6 rounded-xl border border-primary/20 shadow-sm hover:shadow-lg transition-all duration-200 cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-primary/30"
-              aria-label={`Browse ${cat.name} category — ${cat.count} skills`}
+              aria-label={`Browse ${tag.name} tag — ${tag.count} skills`}
             >
               <div className="font-mono text-sm">
-                <div className="text-primary/70 mb-2">// {cat.count} skills</div>
+                <div className="text-primary/70 mb-2">// {tag.count} skills</div>
                 <div className="text-primary mb-1">
-                  "{cat.name.toLowerCase()}": <span className="text-foreground">{'{'}</span>
+                  "{tag.name.toLowerCase()}": <span className="text-foreground">{'{'}</span>
                 </div>
                 <div className="pl-4 text-foreground-secondary">
                   <span className="text-foreground-secondary">exports</span>: [
-                  {cat.exports.map((e, idx) => (
+                  {tag.exports.map((e, idx) => (
                     <span key={idx}>
                       <span className="text-accent">'{e}'</span>
-                      {idx < cat.exports.length - 1 && ', '}
+                      {idx < tag.exports.length - 1 && ', '}
                     </span>
                   ))}
                   ]
@@ -55,7 +72,7 @@ export function Categories({ onSelectCategory }: { onSelectCategory: (cat: strin
               </div>
 
               <div className="mt-4 pt-4 border-t border-primary/10 flex items-center justify-between text-xs font-mono text-foreground-secondary group-hover:text-primary transition-colors duration-200">
-                <span>$ cd ./{cat.name.toLowerCase()} && ls</span>
+                <span>$ cd ./{tag.name.toLowerCase()} && ls</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
               </div>
             </button>

@@ -125,7 +125,7 @@ function HomePage({
   onRunSkill,
 }: any) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+  const [tagFilter, setTagFilter] = useState<string | null>(null);
 
   const handleSearchFocus = () => {
     document.getElementById('search-input')?.focus();
@@ -148,8 +148,8 @@ function HomePage({
     >
       <Hero onOpenDocs={onOpenDocs} />
       <Categories
-        onSelectCategory={(cat) => {
-          setCategoryFilter(cat);
+        onSelectCategory={(tag) => {
+          setTagFilter(tag);
           setSearchQuery('');
           document.getElementById('skills-grid')?.scrollIntoView({ behavior: 'smooth' });
         }}
@@ -157,8 +157,8 @@ function HomePage({
       <SkillsGrid
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        categoryFilter={categoryFilter}
-        setCategoryFilter={setCategoryFilter}
+        tagFilter={tagFilter}
+        setTagFilter={setTagFilter}
         cart={cart}
         onToggleCart={onToggleCart}
         onRunSkill={onRunSkill}
@@ -275,6 +275,7 @@ function AppContent() {
       category: storeSkill.category as SkillCategory,
       icon: storeSkill.icon,
       color: storeSkill.color,
+      tags: storeSkill.tags || [],
       skillMdUrl: storeSkill.skillMdUrl, // ← Critical: enables SKILL.md fetch
       config: {
         capabilities: storeSkill.capabilities ?? [],

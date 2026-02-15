@@ -8,6 +8,7 @@ export interface Skill {
   category: SkillCategory;
   icon: string;
   color: string;
+  tags: string[];
 
   // Configuration
   config: {
@@ -112,6 +113,7 @@ export interface UploadResult {
 }
 
 export interface SkillFilter {
+  tag?: string;
   category?: SkillCategory;
   status?: 'draft' | 'active' | 'archived';
   searchQuery?: string;

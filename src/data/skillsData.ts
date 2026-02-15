@@ -16,7 +16,7 @@ export interface Skill {
   category: SkillCategory;
   icon: string;
   color: string;
-  installCommand: string;
+  installCommand: string;  tags: string[];
   popularity: number;
   repo: string;
   skillMdUrl: string;
@@ -54,7 +54,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 113090,
     repo: 'vercel-labs/agent-skills',
     skillMdUrl: mdUrl('vercel-labs', 'agent-skills', 'vercel-react-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'remotion-best-practices',
@@ -67,7 +67,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 78653,
     repo: 'remotion-dev/skills',
     skillMdUrl: mdUrl('remotion-dev', 'skills', 'remotion-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vercel-composition-patterns',
@@ -80,7 +80,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 31224,
     repo: 'vercel-labs/agent-skills',
     skillMdUrl: mdUrl('vercel-labs', 'agent-skills', 'vercel-composition-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'better-auth-best-practices',
@@ -93,7 +93,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 9400,
     repo: 'better-auth/skills',
     skillMdUrl: mdUrl('better-auth', 'skills', 'better-auth-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'next-best-practices',
@@ -106,7 +106,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 8800,
     repo: 'vercel-labs/next-skills',
     skillMdUrl: mdUrl('vercel-labs', 'next-skills', 'next-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'webapp-testing',
@@ -119,7 +119,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 7900,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'webapp-testing'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'mcp-builder',
@@ -132,7 +132,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 7300,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'mcp-builder'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'test-driven-development',
@@ -145,7 +145,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 6800,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'test-driven-development'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'systematic-debugging',
@@ -158,7 +158,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 8000,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'systematic-debugging'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vue-best-practices',
@@ -171,7 +171,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5400,
     repo: 'hyf0/vue-skills',
     skillMdUrl: mdUrl('hyf0', 'vue-skills', 'vue-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'supabase-postgres',
@@ -184,7 +184,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 14200,
     repo: 'supabase/agent-skills',
     skillMdUrl: mdUrl('supabase', 'agent-skills', 'supabase-postgres-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'subagent-driven-development',
@@ -197,7 +197,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5300,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'subagent-driven-development'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'verification-before-completion',
@@ -210,7 +210,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5000,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'verification-before-completion'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'using-git-worktrees',
@@ -223,7 +223,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4900,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'using-git-worktrees'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'tailwind-design-system',
@@ -236,7 +236,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5000,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'tailwind-design-system'),
-    config: {},
+    config: {}, tags: [],
   },
   // ── New Development Skills ──
   {
@@ -250,7 +250,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4800,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'dispatching-parallel-agents'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'finishing-a-development-branch',
@@ -263,7 +263,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4400,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'finishing-a-development-branch'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'react-components',
@@ -276,7 +276,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4200,
     repo: 'google-labs-code/stitch-skills',
     skillMdUrl: mdUrl('google-labs-code', 'stitch-skills', 'react:components'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'typescript-advanced-types',
@@ -289,7 +289,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4200,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'typescript-advanced-types'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'create-auth-skill',
@@ -302,7 +302,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4000,
     repo: 'better-auth/skills',
     skillMdUrl: mdUrl('better-auth', 'skills', 'create-auth-skill'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vue',
@@ -315,7 +315,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4000,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'vue'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'ai-sdk',
@@ -328,7 +328,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4000,
     repo: 'vercel/ai',
     skillMdUrl: mdUrl('vercel', 'ai'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vite',
@@ -341,7 +341,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3900,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'vite'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'turborepo',
@@ -354,7 +354,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3800,
     repo: 'vercel/turborepo',
     skillMdUrl: mdUrl('vercel', 'turborepo'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'api-design-principles',
@@ -367,7 +367,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'api-design-principles'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vitest',
@@ -380,7 +380,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3500,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'vitest'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vue-best-practices-antfu',
@@ -393,7 +393,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3500,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'vue-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'python-performance-optimization',
@@ -406,7 +406,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3200,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'python-performance-optimization'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'pnpm',
@@ -419,7 +419,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3200,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'pnpm'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vueuse-functions',
@@ -432,7 +432,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3200,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'vueuse-functions'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'stitch-loop',
@@ -445,7 +445,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3100,
     repo: 'google-labs-code/stitch-skills',
     skillMdUrl: mdUrl('google-labs-code', 'stitch-skills', 'stitch-loop'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'pinia',
@@ -458,7 +458,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3100,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'pinia'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'architecture-patterns',
@@ -471,7 +471,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3000,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'architecture-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'nextjs-app-router-patterns',
@@ -484,7 +484,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3000,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'nextjs-app-router-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'nodejs-backend-patterns',
@@ -497,7 +497,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2900,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'nodejs-backend-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'next-cache-components',
@@ -510,7 +510,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2900,
     repo: 'vercel-labs/next-skills',
     skillMdUrl: mdUrl('vercel-labs', 'next-skills', 'next-cache-components'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'code-review-excellence',
@@ -523,7 +523,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2800,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'code-review-excellence'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'postgresql-table-design',
@@ -536,7 +536,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2800,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'postgresql-table-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'antfu',
@@ -549,7 +549,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2700,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'antfu'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'nuxt',
@@ -562,7 +562,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2700,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'nuxt'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'nestjs-best-practices',
@@ -575,7 +575,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2700,
     repo: 'kadajett/agent-nestjs-skills',
     skillMdUrl: mdUrl('kadajett', 'agent-nestjs-skills', 'nestjs-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'python-testing-patterns',
@@ -588,7 +588,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2500,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'python-testing-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'unocss',
@@ -601,7 +601,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2500,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'unocss'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'fastapi-templates',
@@ -614,7 +614,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2400,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'fastapi-templates'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'error-handling-patterns',
@@ -627,7 +627,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'error-handling-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'e2e-testing-patterns',
@@ -640,7 +640,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'e2e-testing-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'next-upgrade',
@@ -653,7 +653,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2200,
     repo: 'vercel-labs/next-skills',
     skillMdUrl: mdUrl('vercel-labs', 'next-skills', 'next-upgrade'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'async-python-patterns',
@@ -666,7 +666,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2200,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'async-python-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'sql-optimization-patterns',
@@ -679,7 +679,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2200,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'sql-optimization-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'tsdown',
@@ -692,7 +692,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2100,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'tsdown'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vitepress',
@@ -705,7 +705,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2100,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'vitepress'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'turborepo-antfu',
@@ -718,7 +718,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2100,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'turborepo'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'github-actions-templates',
@@ -731,7 +731,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2000,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'github-actions-templates'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'slidev',
@@ -744,7 +744,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2000,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'slidev'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'javascript-testing-patterns',
@@ -757,7 +757,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1900,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'javascript-testing-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'tanstack-query',
@@ -770,7 +770,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1900,
     repo: 'jezweb/claude-skills',
     skillMdUrl: mdUrl('jezweb', 'claude-skills', 'tanstack-query'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'stripe-integration',
@@ -783,7 +783,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1900,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'stripe-integration'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'tailwind-v4-shadcn',
@@ -796,7 +796,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'jezweb/claude-skills',
     skillMdUrl: mdUrl('jezweb', 'claude-skills', 'tailwind-v4-shadcn'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'modern-javascript-patterns',
@@ -809,7 +809,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'modern-javascript-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'monorepo-management',
@@ -822,7 +822,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'monorepo-management'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'react-state-management',
@@ -835,7 +835,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'react-state-management'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'langchain-architecture',
@@ -848,7 +848,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'langchain-architecture'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'golang-proje',
@@ -861,7 +861,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'ffallan/claude-skills',
     skillMdUrl: mdUrl('ffallan', 'claude-skills', 'golang-proje'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'git-advanced-workflows',
@@ -874,7 +874,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'git-advanced-workflows'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'docker-expert',
@@ -887,7 +887,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'sickn33/antigravity-awesome-skills',
     skillMdUrl: mdUrl('sickn33', 'antigravity-awesome-skills', 'docker-expert'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'web-component-design',
@@ -900,7 +900,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'web-component-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'microservices-patterns',
@@ -913,7 +913,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'microservices-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'debugging-strategies',
@@ -926,7 +926,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'debugging-strategies'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'rag-implementation',
@@ -939,7 +939,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'rag-implementation'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'uv-package-manager',
@@ -952,7 +952,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'uv-package-manager'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vue-best-practices-vuejs-ai',
@@ -965,7 +965,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'vuejs-ai/skills',
     skillMdUrl: mdUrl('vuejs-ai', 'skills', 'vue-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'auth-implementation-patterns',
@@ -978,7 +978,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'auth-implementation-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'architecture-decision-records',
@@ -991,7 +991,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'architecture-decision-records'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vue-development-guides',
@@ -1004,7 +1004,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'vuejs-ai/skills',
     skillMdUrl: mdUrl('vuejs-ai', 'skills', 'vue-development-guides'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'python-packaging',
@@ -1017,7 +1017,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'python-packaging'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vue-router-best-practices',
@@ -1030,7 +1030,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'vue-router-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'deployment-pipeline-design',
@@ -1043,7 +1043,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'deployment-pipeline-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'database-migration',
@@ -1056,7 +1056,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'database-migration'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'rust-async-patterns',
@@ -1069,7 +1069,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'rust-async-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'convex',
@@ -1082,7 +1082,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'waynesutton/convexskills',
     skillMdUrl: mdUrl('waynesutton', 'convexskills'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'react-email',
@@ -1095,7 +1095,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'resend/react-email',
     skillMdUrl: mdUrl('resend', 'react-email'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'secrets-management',
@@ -1108,7 +1108,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'secrets-management'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'workflow-orchestration-patterns',
@@ -1121,7 +1121,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'workflow-orchestration-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // ── Design ─────────────────────────────────────────────────────
@@ -1136,7 +1136,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 55171,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'frontend-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'web-design-guidelines',
@@ -1149,7 +1149,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 85434,
     repo: 'vercel-labs/agent-skills',
     skillMdUrl: mdUrl('vercel-labs', 'agent-skills', 'web-design-guidelines'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'ui-ux-pro-max',
@@ -1162,7 +1162,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 19600,
     repo: 'nextlevelbuilder/ui-ux-pro-max-skill',
     skillMdUrl: mdUrl('nextlevelbuilder', 'ui-ux-pro-max-skill'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'canvas-design',
@@ -1175,7 +1175,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 6300,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'canvas-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'theme-factory',
@@ -1188,7 +1188,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5200,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'theme-factory'),
-    config: {},
+    config: {}, tags: [],
   },
   // ── New Design Skills ──
   {
@@ -1202,7 +1202,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4800,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'algorithmic-art'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'brand-guidelines',
@@ -1215,7 +1215,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4800,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'brand-guidelines'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'shadcn-ui',
@@ -1228,7 +1228,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4000,
     repo: 'giuseppe-trisciuoglio/developer-kit',
     skillMdUrl: mdUrl('giuseppe-trisciuoglio', 'developer-kit', 'shadcn-ui'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'design-md',
@@ -1241,7 +1241,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4000,
     repo: 'google-labs-code/stitch-skills',
     skillMdUrl: mdUrl('google-labs-code', 'stitch-skills', 'design-md'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'frontend-design-claude-code',
@@ -1254,7 +1254,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3000,
     repo: 'anthropics/claude-code',
     skillMdUrl: mdUrl('anthropics', 'claude-code', 'frontend-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'web-design-guidelines-antfu',
@@ -1267,7 +1267,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3000,
     repo: 'antfu/skills',
     skillMdUrl: mdUrl('antfu', 'skills', 'web-design-guidelines'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-article-illustrator',
@@ -1280,7 +1280,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2900,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-article-illustrator'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-cover-image',
@@ -1293,7 +1293,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2800,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-cover-image'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-xhs-images',
@@ -1306,7 +1306,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2800,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-xhs-images'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-comic',
@@ -1319,7 +1319,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2600,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-comic'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'responsive-design',
@@ -1332,7 +1332,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'responsive-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'mobile-ios-design',
@@ -1345,7 +1345,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'mobile-ios-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-infographic',
@@ -1358,7 +1358,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-infographic'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-image-gen',
@@ -1371,7 +1371,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-image-gen'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'interface-design',
@@ -1384,7 +1384,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2100,
     repo: 'dammyjay93/interface-design',
     skillMdUrl: mdUrl('dammyjay93', 'interface-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'mobile-android-design',
@@ -1397,7 +1397,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2000,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'mobile-android-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'design-system-patterns',
@@ -1410,7 +1410,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1900,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'design-system-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'interaction-design',
@@ -1423,7 +1423,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'interaction-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'react-native-design',
@@ -1436,7 +1436,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'react-native-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'visual-design-foundations',
@@ -1449,7 +1449,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'visual-design-foundations'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'accessibility-compliance',
@@ -1462,7 +1462,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'accessibility-compliance'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'kpi-dashboard-design',
@@ -1475,7 +1475,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'kpi-dashboard-design'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'shadcn-ui-stitch',
@@ -1488,7 +1488,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'google-labs-code/stitch-skills',
     skillMdUrl: mdUrl('google-labs-code', 'stitch-skills', 'shadcn-ui'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // ── Marketing ──────────────────────────────────────────────────
@@ -1503,7 +1503,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 15500,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'seo-audit'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'marketing-psychology',
@@ -1516,7 +1516,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 8500,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'marketing-psychology'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'programmatic-seo',
@@ -1529,7 +1529,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 7300,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'programmatic-seo'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'marketing-ideas',
@@ -1542,7 +1542,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 6600,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'marketing-ideas'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'social-content',
@@ -1555,7 +1555,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 6100,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'social-content'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'pricing-strategy',
@@ -1568,7 +1568,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 6100,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'pricing-strategy'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'launch-strategy',
@@ -1581,7 +1581,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5400,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'launch-strategy'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'analytics-tracking',
@@ -1594,7 +1594,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5300,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'analytics-tracking'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'page-cro',
@@ -1607,7 +1607,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5400,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'page-cro'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'email-sequence',
@@ -1620,7 +1620,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5000,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'email-sequence'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'competitor-alternatives',
@@ -1633,7 +1633,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5100,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'competitor-alternatives'),
-    config: {},
+    config: {}, tags: [],
   },
   // ── New Marketing Skills ──
   {
@@ -1647,7 +1647,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5300,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'onboarding-cro'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'paid-ads',
@@ -1660,7 +1660,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5100,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'paid-ads'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'free-tool-strategy',
@@ -1673,7 +1673,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4900,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'free-tool-strategy'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'signup-flow-cro',
@@ -1686,7 +1686,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4800,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'signup-flow-cro'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'paywall-upgrade-cro',
@@ -1699,7 +1699,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4700,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'paywall-upgrade-cro'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'referral-program',
@@ -1712,7 +1712,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4700,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'referral-program'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'form-cro',
@@ -1725,7 +1725,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4600,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'form-cro'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'popup-cro',
@@ -1738,7 +1738,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4500,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'popup-cro'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'ab-test-setup',
@@ -1751,7 +1751,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4500,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'ab-test-setup'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'content-strategy',
@@ -1764,7 +1764,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3600,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'content-strategy'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'product-marketing-context',
@@ -1777,7 +1777,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3500,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'product-marketing-context'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'seo',
@@ -1790,7 +1790,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'georesciencelab/opc-skills',
     skillMdUrl: mdUrl('georesciencelab', 'opc-skills', 'seo'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // ── Productivity ───────────────────────────────────────────────
@@ -1805,7 +1805,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 11700,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'pdf'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'pptx',
@@ -1818,7 +1818,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 9700,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'pptx'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'xlsx',
@@ -1831,7 +1831,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 9000,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'xlsx'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'docx',
@@ -1844,7 +1844,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 9000,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'docx'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'writing-plans',
@@ -1857,7 +1857,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 6900,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'writing-plans'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'executing-plans',
@@ -1870,7 +1870,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 6100,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'executing-plans'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'web-artifacts-builder',
@@ -1883,7 +1883,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5000,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'web-artifacts-builder'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'doc-coauthoring',
@@ -1896,7 +1896,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5300,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'doc-coauthoring'),
-    config: {},
+    config: {}, tags: [],
   },
   // ── New Productivity Skills ──
   {
@@ -1910,7 +1910,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4500,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'internal-comms'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-slide-deck',
@@ -1923,7 +1923,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3000,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-slide-deck'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'planning-with-files',
@@ -1936,7 +1936,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2100,
     repo: 'othmanadi/planning-with-files',
     skillMdUrl: mdUrl('othmanadi', 'planning-with-files'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'changelog-automation',
@@ -1949,7 +1949,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'changelog-automation'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // ── Tools ──────────────────────────────────────────────────────
@@ -1964,7 +1964,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 168652,
     repo: 'vercel-labs/skills',
     skillMdUrl: mdUrl('vercel-labs', 'skills', 'skills/find-skills'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'agent-browser',
@@ -1977,7 +1977,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 27926,
     repo: 'vercel-labs/agent-browser',
     skillMdUrl: mdUrl('vercel-labs', 'agent-browser'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'browser-use',
@@ -1990,7 +1990,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 27426,
     repo: 'browser-use/browser-use',
     skillMdUrl: mdUrl('browser-use', 'browser-use'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'skill-creator',
@@ -2003,7 +2003,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 27399,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'skill-creator'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'audit-website',
@@ -2016,7 +2016,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 16100,
     repo: 'squirrelscan/skills',
     skillMdUrl: mdUrl('squirrelscan', 'skills', 'audit-website'),
-    config: {},
+    config: {}, tags: [],
   },
   // ── New Tools Skills ──
   {
@@ -2030,7 +2030,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4700,
     repo: 'obra/episodic-memory',
     skillMdUrl: mdUrl('obra', 'episodic-memory', 'remembering-conversations'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'template-skill',
@@ -2043,7 +2043,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4600,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'template-skill'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'clawdirect',
@@ -2056,7 +2056,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4300,
     repo: 'napoleond/clawdirect',
     skillMdUrl: mdUrl('napoleond', 'clawdirect'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'instaclaw',
@@ -2069,7 +2069,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4300,
     repo: 'napoleond/instaclaw',
     skillMdUrl: mdUrl('napoleond', 'instaclaw'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'slack-gif-creator',
@@ -2082,7 +2082,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4200,
     repo: 'anthropics/skills',
     skillMdUrl: mdUrl('anthropics', 'skills', 'slack-gif-creator'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'clawdirect-dev',
@@ -2095,7 +2095,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4200,
     repo: 'napoleond/clawdirect',
     skillMdUrl: mdUrl('napoleond', 'clawdirect', 'clawdirect-dev'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'ralph-tui-prd',
@@ -2108,7 +2108,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3600,
     repo: 'subsy/ralph-tui',
     skillMdUrl: mdUrl('subsy', 'ralph-tui', 'ralph-tui-prd'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'ralph-tui-create-json',
@@ -2121,7 +2121,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3100,
     repo: 'subsy/ralph-tui',
     skillMdUrl: mdUrl('subsy', 'ralph-tui', 'ralph-tui-create-json'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'agentation',
@@ -2134,7 +2134,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2900,
     repo: 'benjitaylor/agentation',
     skillMdUrl: mdUrl('benjitaylor', 'agentation'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'ralph-tui-create-beads',
@@ -2147,7 +2147,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2800,
     repo: 'subsy/ralph-tui',
     skillMdUrl: mdUrl('subsy', 'ralph-tui', 'ralph-tui-create-beads'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'ralph-tui-create-beads-rust',
@@ -2160,7 +2160,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2800,
     repo: 'subsy/ralph-tui',
     skillMdUrl: mdUrl('subsy', 'ralph-tui', 'ralph-tui-create-beads-rust'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-post-to-wechat',
@@ -2173,7 +2173,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2500,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-post-to-wechat'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-post-to-x',
@@ -2186,7 +2186,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2400,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-post-to-x'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-compress-image',
@@ -2199,7 +2199,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-compress-image'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'firecrawl',
@@ -2212,7 +2212,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'firecrawl/cli',
     skillMdUrl: mdUrl('firecrawl', 'cli'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'release-skills',
@@ -2225,7 +2225,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'release-skills'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-danger-gemini-web',
@@ -2238,7 +2238,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-danger-gemini-web'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-danger-x-to-markdown',
@@ -2251,7 +2251,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2200,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-danger-x-to-markdown'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'enhance-prompt',
@@ -2264,7 +2264,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2200,
     repo: 'google-labs-code/stitch-skills',
     skillMdUrl: mdUrl('google-labs-code', 'stitch-skills', 'enhance-prompt'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'baoyu-url-to-markdown',
@@ -2277,7 +2277,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2100,
     repo: 'jimliu/baoyu-skills',
     skillMdUrl: mdUrl('jimliu', 'baoyu-skills', 'baoyu-url-to-markdown'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'context7',
@@ -2290,7 +2290,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1900,
     repo: 'intellectronica/agent-skills',
     skillMdUrl: mdUrl('intellectronica', 'agent-skills', 'context7'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'agent-tools',
@@ -2303,7 +2303,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: '1nference-sh/skills',
     skillMdUrl: mdUrl('1nference-sh', 'skills', 'agent-tools'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'code-reviewer',
@@ -2316,7 +2316,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'google-gemini/gemini-cli',
     skillMdUrl: mdUrl('google-gemini', 'gemini-cli', 'code-reviewer'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // ── Research ───────────────────────────────────────────────────
@@ -2331,7 +2331,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 14400,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'brainstorming'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'requesting-code-review',
@@ -2344,7 +2344,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5600,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'requesting-code-review'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'using-superpowers',
@@ -2357,7 +2357,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5000,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'using-superpowers'),
-    config: {},
+    config: {}, tags: [],
   },
   // ── New Research Skills ──
   {
@@ -2371,7 +2371,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5000,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'receiving-code-review'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'prompt-engineering-patterns',
@@ -2384,7 +2384,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2700,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'prompt-engineering-patterns'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'data-storytelling',
@@ -2397,7 +2397,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'data-storytelling'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // ── Mobile ─────────────────────────────────────────────────────
@@ -2412,7 +2412,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 22649,
     repo: 'vercel-labs/agent-skills',
     skillMdUrl: mdUrl('vercel-labs', 'agent-skills', 'vercel-react-native-skills'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'building-native-ui',
@@ -2425,7 +2425,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 8600,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'building-native-ui'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'native-data-fetching',
@@ -2438,7 +2438,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5600,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'native-data-fetching'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'upgrading-expo',
@@ -2451,7 +2451,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5600,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'upgrading-expo'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'expo-tailwind-setup',
@@ -2464,7 +2464,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4800,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'expo-tailwind-setup'),
-    config: {},
+    config: {}, tags: [],
   },
   // ── New Mobile Skills ──
   {
@@ -2478,7 +2478,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4900,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'expo-dev-client'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'expo-deployment',
@@ -2491,7 +2491,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4900,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'expo-deployment'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'expo-api-routes',
@@ -2504,7 +2504,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4600,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'expo-api-routes'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'react-native-best-practices',
@@ -2517,7 +2517,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4600,
     repo: 'callstackincubator/agent-skills',
     skillMdUrl: mdUrl('callstackincubator', 'agent-skills', 'react-native-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'expo-cicd-workflows',
@@ -2530,7 +2530,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4100,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'expo-cicd-workflows'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'swiftui-expert-skill',
@@ -2543,7 +2543,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3300,
     repo: 'avdlee/swiftui-agent-skill',
     skillMdUrl: mdUrl('avdlee', 'swiftui-agent-skill'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'react-native-architecture',
@@ -2556,7 +2556,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1900,
     repo: 'wshobson/agents',
     skillMdUrl: mdUrl('wshobson', 'agents', 'react-native-architecture'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'flutter-expert',
@@ -2569,7 +2569,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'jeffallan/claude-skills',
     skillMdUrl: mdUrl('jeffallan', 'claude-skills', 'flutter-expert'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // ── Writing ────────────────────────────────────────────────────
@@ -2584,7 +2584,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 11000,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'copywriting'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'copy-editing',
@@ -2597,7 +2597,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5700,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'copy-editing'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'writing-skills',
@@ -2610,7 +2610,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4900,
     repo: 'obra/superpowers',
     skillMdUrl: mdUrl('obra', 'superpowers', 'writing-skills'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'schema-markup',
@@ -2623,7 +2623,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5200,
     repo: 'coreyhaines31/marketingskills',
     skillMdUrl: mdUrl('coreyhaines31', 'marketingskills', 'schema-markup'),
-    config: {},
+    config: {}, tags: [],
   },
   // ── New Writing Skills ──
   {
@@ -2637,7 +2637,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'op7418/humanizer-zh',
     skillMdUrl: mdUrl('op7418', 'humanizer-zh'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'email-best-practices',
@@ -2650,7 +2650,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1900,
     repo: 'resend/email-best-practices',
     skillMdUrl: mdUrl('resend', 'email-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // ── Additional Community & Official Skills ────────────────────
@@ -2667,7 +2667,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 87100,
     repo: 'vercel-labs/agent-skills',
     skillMdUrl: `https://raw.githubusercontent.com/vercel-labs/agent-skills/main/skills/web-design-guidelines/SKILL.md`,
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'vercel-claude-ai',
@@ -2680,7 +2680,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 5000,
     repo: 'vercel-labs/agent-skills',
     skillMdUrl: `https://raw.githubusercontent.com/vercel-labs/agent-skills/main/skills/claude.ai/SKILL.md`,
-    config: {},
+    config: {}, tags: [],
   },
 
   // Expo additional
@@ -2695,7 +2695,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 4000,
     repo: 'expo/skills',
     skillMdUrl: mdUrl('expo', 'skills', 'use-dom'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Prisma
@@ -2710,7 +2710,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2200,
     repo: 'prisma/skills',
     skillMdUrl: mdUrl('prisma', 'skills', 'prisma-database-setup'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'prisma-client-api',
@@ -2723,7 +2723,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2000,
     repo: 'prisma/skills',
     skillMdUrl: mdUrl('prisma', 'skills', 'prisma-client-api'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Angular
@@ -2738,7 +2738,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'analogjs/angular-skills',
     skillMdUrl: mdUrl('analogjs', 'angular-skills', 'angular-signals'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'angular-component',
@@ -2751,7 +2751,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1700,
     repo: 'analogjs/angular-skills',
     skillMdUrl: mdUrl('analogjs', 'angular-skills', 'angular-component'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Playwright
@@ -2766,7 +2766,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1900,
     repo: 'currents-dev/playwright-best-practices-skill',
     skillMdUrl: mdUrl('currents-dev', 'playwright-best-practices-skill'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // AST Grep
@@ -2781,7 +2781,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'ast-grep/agent-skill',
     skillMdUrl: mdUrl('ast-grep', 'agent-skill'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Web Quality (Addy Osmani)
@@ -2796,7 +2796,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'addyosmani/web-quality-skills',
     skillMdUrl: mdUrl('addyosmani', 'web-quality-skills', 'web-quality-audit'),
-    config: {},
+    config: {}, tags: [],
   },
   {
     id: 'core-web-vitals',
@@ -2809,7 +2809,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1400,
     repo: 'addyosmani/web-quality-skills',
     skillMdUrl: mdUrl('addyosmani', 'web-quality-skills', 'core-web-vitals'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Gemini
@@ -2824,7 +2824,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'google-gemini/gemini-skills',
     skillMdUrl: mdUrl('google-gemini', 'gemini-skills', 'gemini-api-dev'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Payload CMS
@@ -2839,7 +2839,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'payloadcms/skills',
     skillMdUrl: mdUrl('payloadcms', 'skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Mastra AI
@@ -2854,7 +2854,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1400,
     repo: 'mastra-ai/skills',
     skillMdUrl: mdUrl('mastra-ai', 'skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Code Review Expert
@@ -2869,7 +2869,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1800,
     repo: 'sanyuan0704/code-review-expert',
     skillMdUrl: mdUrl('sanyuan0704', 'code-review-expert'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Vercel AI Elements
@@ -2884,7 +2884,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1300,
     repo: 'vercel/ai-elements',
     skillMdUrl: mdUrl('vercel', 'ai-elements'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Convex
@@ -2899,7 +2899,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1600,
     repo: 'waynesutton/convexskills',
     skillMdUrl: mdUrl('waynesutton', 'convexskills', 'convex-best-practices'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Java / Spring
@@ -2914,7 +2914,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1400,
     repo: 'pluginagentmarketplace/custom-plugin-java',
     skillMdUrl: mdUrl('pluginagentmarketplace', 'custom-plugin-java'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Simplify (Brian Lovin)
@@ -2929,7 +2929,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'brianlovin/claude-config',
     skillMdUrl: mdUrl('brianlovin', 'claude-config', 'simplify'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // TanStack Query Best Practices
@@ -2944,7 +2944,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'deckardger/tanstack-agent-skills',
     skillMdUrl: mdUrl('deckardger', 'tanstack-agent-skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // SwiftUI (detailed)
@@ -2959,7 +2959,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 3300,
     repo: 'avdlee/swiftui-agent-skill',
     skillMdUrl: mdUrl('avdlee', 'swiftui-agent-skill'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Sanity CMS
@@ -2974,7 +2974,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1200,
     repo: 'sanity-io/agent-toolkit',
     skillMdUrl: mdUrl('sanity-io', 'agent-toolkit'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Stripe best practices
@@ -2989,7 +2989,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1256,
     repo: 'stripe/ai',
     skillMdUrl: mdUrl('stripe', 'ai'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Cloudflare Workers
@@ -3004,7 +3004,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1200,
     repo: 'cloudflare/skills',
     skillMdUrl: mdUrl('cloudflare', 'skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // HashiCorp Terraform
@@ -3019,7 +3019,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1200,
     repo: 'hashicorp/agent-skills',
     skillMdUrl: mdUrl('hashicorp', 'agent-skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Sentry
@@ -3034,7 +3034,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1100,
     repo: 'getsentry/skills',
     skillMdUrl: mdUrl('getsentry', 'skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Neon Database
@@ -3049,7 +3049,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1100,
     repo: 'neondatabase/agent-skills',
     skillMdUrl: mdUrl('neondatabase', 'agent-skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // WordPress
@@ -3064,7 +3064,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1000,
     repo: 'WordPress/agent-skills',
     skillMdUrl: mdUrl('WordPress', 'agent-skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Tinybird Analytics
@@ -3079,7 +3079,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1000,
     repo: 'tinybirdco/tinybird-agent-skills',
     skillMdUrl: mdUrl('tinybirdco', 'tinybird-agent-skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // China Stock Analysis
@@ -3094,7 +3094,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 800,
     repo: 'sugarforever/01coder-agent-skills',
     skillMdUrl: mdUrl('sugarforever', '01coder-agent-skills', 'china-stock-analysis'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Trail of Bits Security
@@ -3109,7 +3109,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1100,
     repo: 'trailofbits/skills',
     skillMdUrl: mdUrl('trailofbits', 'skills'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // React Email
@@ -3124,7 +3124,7 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 1500,
     repo: 'resend/react-email',
     skillMdUrl: mdUrl('resend', 'react-email'),
-    config: {},
+    config: {}, tags: [],
   },
 
   // Firecrawl
@@ -3139,6 +3139,6 @@ export const SKILLS_DATA: Skill[] = [
     popularity: 2300,
     repo: 'firecrawl/cli',
     skillMdUrl: mdUrl('firecrawl', 'cli'),
-    config: {},
+    config: {}, tags: [],
   },
 ];

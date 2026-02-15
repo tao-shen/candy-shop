@@ -11,8 +11,8 @@ import { useVersionMode } from '../../contexts/VersionModeContext';
 interface SkillsGridProps {
   searchQuery: string;
   setSearchQuery: (q: string) => void;
-  categoryFilter: string | null;
-  setCategoryFilter: (c: string | null) => void;
+  tagFilter: string | null;
+  setTagFilter: (t: string | null) => void;
   cart: Set<string>;
   onToggleCart: (id: string) => void;
   onRunSkill: (skill: Skill) => void;
@@ -35,8 +35,8 @@ const getCategoryColor = (category: string) => {
 export function SkillsGrid({
   searchQuery,
   setSearchQuery,
-  categoryFilter,
-  setCategoryFilter,
+  tagFilter,
+  setTagFilter,
   cart,
   onToggleCart,
   onRunSkill,
@@ -60,15 +60,15 @@ export function SkillsGrid({
   }, [additionalLoaded]);
 
   // Reset additional loaded count when filters change
-  const prevFiltersRef = useRef({ searchQuery, categoryFilter });
+  const prevFiltersRef = useRef({ searchQuery, tagFilter });
   useEffect(() => {
     const prev = prevFiltersRef.current;
-    if (prev.searchQuery !== searchQuery || prev.categoryFilter !== categoryFilter) {
+    if (prev.searchQuery !== searchQuery || prev.tagFilter !== tagFilter) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setAdditionalLoaded(0);
-      prevFiltersRef.current = { searchQuery, categoryFilter };
+      prevFiltersRef.current = { searchQuery, tagFilter };
     }
-  }, [searchQuery, categoryFilter]);
+  }, [searchQuery, tagFilter]);
 
   // Cmd+K / Ctrl+K keyboard shortcut to focus search
   useEffect(() => {
@@ -130,12 +130,16 @@ export function SkillsGrid({
       .filter((skill) => {
         const matchesSearch =
           skill.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          skill.description.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesCategory = categoryFilter ? skill.category === categoryFilter : true;
-        return matchesSearch && matchesCategory;
+          skill.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          skill.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
+
+        const matchesTag = tagFilter ?
+          (skill.tags.includes(tagFilter) || skill.category === tagFilter) : true;
+
+        return matchesSearch && matchesTag;
       })
       .sort((a, b) => (b.popularity || 0) - (a.popularity || 0)); // Sort by popularity
-  }, [searchQuery, categoryFilter]);
+  }, [searchQuery, tagFilter]);
 
   return (
     <>
@@ -145,16 +149,16 @@ export function SkillsGrid({
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <h2 className="text-3xl font-candy font-bold mb-2 text-foreground">
-                {categoryFilter ? t('skills.categoryModules', { category: categoryFilter }) : t('skills.freshlyBaked')}
+                {tagFilter ? t('skills.categoryModules', { category: tagFilter }) : t('skills.freshlyBaked')}
               </h2>
               <div className="flex items-center gap-2 text-muted-foreground font-mono text-sm">
                 <span>$ ls ./inventory</span>
-                {categoryFilter && (
+                {tagFilter && (
                   <button
-                    onClick={() => setCategoryFilter(null)}
+                    onClick={() => setTagFilter(null)}
                     className="px-2 py-0.5 bg-secondary text-secondary-foreground rounded hover:bg-secondary/80 transition-colors flex items-center gap-1"
                   >
-                    --filter="{categoryFilter}" <X className="w-3 h-3" />
+                    --filter="{tagFilter}" <X className="w-3 h-3" />
                   </button>
                 )}
               </div>
@@ -240,11 +244,12 @@ export function SkillsGrid({
                         </span>
                       </div>
 
-                      {/* Description as Comment */}
-                      <div className="text-muted-foreground italic text-xs leading-5 border-l-2 border-border pl-3 py-1">
-                        /** <br />
-                        &nbsp;* {skill.description} <br />
-                        &nbsp;*/
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-3 border-l-2 border-border pl-3">
+                        <span className="text-primary/70 text-[10px] uppercase font-bold tracking-tight bg-primary/5 px-2 rounded">// {skill.category}</span>
+                        {skill.tags.map(tag => (
+                          <span key={tag} className="text-foreground-secondary text-[10px] uppercase font-bold tracking-tight bg-secondary/30 px-2 rounded">{tag}</span>
+                        ))}
                       </div>
                     </div>
                   </div>
