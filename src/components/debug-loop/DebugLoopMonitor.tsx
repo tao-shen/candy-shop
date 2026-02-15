@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import {
   Play,
   Pause,
-  Stop,
+  Square,
   RotateCcw,
   AlertCircle,
   Bug,
