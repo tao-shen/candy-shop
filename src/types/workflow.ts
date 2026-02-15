@@ -192,7 +192,7 @@ export interface WorkflowMetadata {
   updatedAt?: Date;
   lastExecutedAt?: Date;
   executionCount?: number;
-  tags: string[];
+  tags?: string[];
   author?: string;
 }
 
