@@ -165,7 +165,7 @@ export function SkillCreatorPage({ onComplete, onCancel }: SkillCreatorPageProps
     }
 
     // Convert workflow to skill and navigate to executor
-    const skill = workflowToSkill(workflow);
+    workflowToSkill(workflow);
     onComplete(); // Will trigger navigation back to skills list
   };
 

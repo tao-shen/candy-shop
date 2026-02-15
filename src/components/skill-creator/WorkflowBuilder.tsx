@@ -807,7 +807,7 @@ export function WorkflowBuilder({
                   <select
                     value={selectedNode.config.outputFormat}
                     onChange={(e) => updateNode(selectedNode.id, {
-                      config: { ...selectedNode.config, outputFormat: e.target.value }
+                      config: { ...selectedNode.config, outputFormat: e.target.value as 'text' | 'json' | 'markdown' | 'html' }
                     })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   >
@@ -820,8 +820,7 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Output Template</label>
                   <textarea
-                    value={selectedNode.config.template || ''}
-                    onChange={(e) => updateNode(selectedNode.id, {
+                    value={(selectedNode.config as any).template || ''}
                       config: { ...selectedNode.config, template: e.target.value }
                     })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary min-h-[100px]"
