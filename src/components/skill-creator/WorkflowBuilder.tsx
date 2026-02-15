@@ -366,7 +366,17 @@ export function WorkflowBuilder({
       alert('Please enter a workflow name');
       return;
     }
-    onSave(workflow as Workflow);
+    const workflowToSave = {
+      ...workflow,
+      metadata: {
+        ...workflow.metadata,
+        createdAt: workflow.metadata?.createdAt || new Date(),
+        updatedAt: new Date(),
+        executionCount: workflow.metadata?.executionCount || 0,
+        tags: workflow.metadata?.tags || [],
+      },
+    } as Workflow;
+    onSave(workflowToSave);
   }, [workflow, onSave]);
 
   // Execute workflow
