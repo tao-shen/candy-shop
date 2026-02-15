@@ -4,12 +4,10 @@ import {
   Pause,
   Stop,
   RotateCcw,
-  CheckCircle,
-  XCircle,
   AlertCircle,
   Bug,
-  Clock,
   FileText,
+  ExternalLink,
   Zap,
   Activity,
 } from 'lucide-react';
