@@ -261,48 +261,10 @@ export function WorkflowBuilder({
   );
 
   // Add a connection
-  const addConnection = useCallback(
-    (sourceId: string, targetId: string) => {
-      if (sourceId === targetId) return;
 
-      // Check if connection already exists
-      const exists = workflow.connections?.some(
-        (c) => c.sourceNodeId === sourceId && c.targetNodeId === targetId
-      );
-      if (exists) return;
-
-      const newConnection: WorkflowConnection = {
-        id: `conn-${Date.now()}`,
-        sourceNodeId: sourceId,
-        targetNodeId: targetId,
-      };
-
-      setWorkflow((prev) => ({
-        ...prev,
-        connections: [...(prev.connections || []), newConnection],
-        metadata: {
-          ...prev.metadata,
-          updatedAt: new Date(),
-        },
-      }));
-    },
-    [workflow.connections]
-  );
 
   // Delete a connection
-  const deleteConnection = useCallback(
-    (connectionId: string) => {
-      setWorkflow((prev) => ({
-        ...prev,
-        connections: prev.connections?.filter((c) => c.id !== connectionId) || [],
-        metadata: {
-          ...prev.metadata,
-          updatedAt: new Date(),
-        },
-      }));
-    },
-    []
-  );
+
 
   // Handle canvas click (for placing nodes or deselecting)
   const handleCanvasClick = useCallback(
