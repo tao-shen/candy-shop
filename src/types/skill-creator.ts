@@ -11,7 +11,7 @@ export interface Skill {
 
   // Configuration
   config: {
-    capabilities: string[];
+    capabilities?: string[];
     systemPrompt: string;
     parameters: Record<string, unknown>;
     tools?: string[];
@@ -63,7 +63,7 @@ export interface AnalysisResult {
   suggestedName: string;
   suggestedDescription: string;
   suggestedCategory: SkillCategory;
-  suggestedCapabilities: string[];
+  suggestedCapabilities?: string[];
   
   // Context
   filesSummary: FileSummary[];
