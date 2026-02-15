@@ -23,7 +23,7 @@ import {
 import type {
   Workflow,
   WorkflowNode,
-  WorkflowConnection,
+
   WorkflowNodeType,
   CodeNodeConfig,
   OutputNodeConfig,
