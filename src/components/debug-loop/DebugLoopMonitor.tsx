@@ -23,7 +23,6 @@ import type {
   DebugLoopIteration,
   DebugLoopStats,
   RemoteError,
-  FixSuggestion,
   IterationLog,
 } from '../../types/auto-debug';
 
@@ -36,8 +35,7 @@ interface DebugLoopMonitorProps {
 }
 
 export function DebugLoopMonitor({ config, onStart, onPause, onResume, onStop }: DebugLoopMonitorProps) {
-  const [state, setState] = useState<DebugLoopState>(config.state);
-  const [currentIteration, setCurrentIteration] = useState(0);
+  const [state] = useState<DebugLoopState>(config.state);
   const [iterations, setIterations] = useState<DebugLoopIteration[]>([]);
   const [logs, setLogs] = useState<IterationLog[]>([]);
   const [stats, setStats] = useState<DebugLoopStats | null>(null);
