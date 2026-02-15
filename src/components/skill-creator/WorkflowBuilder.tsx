@@ -27,6 +27,9 @@ import type {
   WorkflowNodeType,
   CodeNodeConfig,
   OutputNodeConfig,
+  LLMNodeConfig,
+  WebSearchNodeConfig,
+  APICallNodeConfig,
 } from '../../types/workflow';
 
 interface WorkflowBuilderProps {
@@ -656,9 +659,9 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Model Provider</label>
                   <select
-                    value={selectedNode.config.modelProvider}
+                    value={(selectedNode.config as LLMNodeConfig).modelProvider}
                     onChange={(e) => updateNode(selectedNode.id, {
-                      config: { ...selectedNode.config, modelProvider: e.target.value }
+                      config: { ...selectedNode.config, modelProvider: e.target.value as 'openai' | 'anthropic' | 'google' | 'custom' }
                     })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   >
@@ -672,7 +675,7 @@ export function WorkflowBuilder({
                   <label className="block text-sm font-medium text-gray-700 mb-2">Model ID</label>
                   <input
                     type="text"
-                    value={selectedNode.config.modelId}
+                    value={(selectedNode.config as LLMNodeConfig).modelId}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, modelId: e.target.value }
                     })}
@@ -683,7 +686,7 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">System Prompt</label>
                   <textarea
-                    value={selectedNode.config.systemPrompt || ''}
+                    value={(selectedNode.config as LLMNodeConfig).systemPrompt || ''}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, systemPrompt: e.target.value }
                     })}
@@ -699,9 +702,9 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Search Engine</label>
                   <select
-                    value={selectedNode.config.searchEngine}
+                    value={(selectedNode.config as WebSearchNodeConfig).searchEngine}
                     onChange={(e) => updateNode(selectedNode.id, {
-                      config: { ...selectedNode.config, searchEngine: e.target.value }
+                      config: { ...selectedNode.config, searchEngine: e.target.value as 'google' | 'bing' | 'duckduckgo' | 'tavily' }
                     })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   >
@@ -715,7 +718,7 @@ export function WorkflowBuilder({
                   <label className="block text-sm font-medium text-gray-700 mb-2">Query</label>
                   <input
                     type="text"
-                    value={selectedNode.config.query}
+                    value={(selectedNode.config as WebSearchNodeConfig).query}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, query: e.target.value }
                     })}
@@ -727,7 +730,7 @@ export function WorkflowBuilder({
                   <label className="block text-sm font-medium text-gray-700 mb-2">Max Results</label>
                   <input
                     type="number"
-                    value={selectedNode.config.maxResults}
+                    value={(selectedNode.config as WebSearchNodeConfig).maxResults}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, maxResults: parseInt(e.target.value) }
                     })}
@@ -745,7 +748,7 @@ export function WorkflowBuilder({
                   <label className="block text-sm font-medium text-gray-700 mb-2">URL</label>
                   <input
                     type="text"
-                    value={selectedNode.config.url}
+                    value={(selectedNode.config as APICallNodeConfig).url}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, url: e.target.value }
                     })}
@@ -756,9 +759,9 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Method</label>
                   <select
-                    value={selectedNode.config.method}
+                    value={(selectedNode.config as APICallNodeConfig).method}
                     onChange={(e) => updateNode(selectedNode.id, {
-                      config: { ...selectedNode.config, method: e.target.value }
+                      config: { ...selectedNode.config, method: e.target.value as 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' }
                     })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   >
@@ -779,7 +782,7 @@ export function WorkflowBuilder({
                   <select
                     value={(selectedNode.config as CodeNodeConfig).language}
                     onChange={(e) => updateNode(selectedNode.id, {
-                      config: { ...selectedNode.config, language: e.target.value }
+                      config: { ...selectedNode.config, language: e.target.value as 'javascript' | 'python' | 'typescript' }
                     })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   >
