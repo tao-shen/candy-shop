@@ -346,8 +346,8 @@ export function WorkflowBuilder({
   const handleMouseUp = useCallback(() => {
     if (isConnecting && connectionStart) {
       const hoveredElement = document.elementFromPoint(
-        parseFloat(dragStartPos.current?.x || '0'),
-        parseFloat(dragStartPos.current?.y || '0')
+        dragStartPos.current?.x || 0,
+        dragStartPos.current?.y || 0
       );
       // Handle connection completion
     }
