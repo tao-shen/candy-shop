@@ -25,6 +25,8 @@ import type {
   WorkflowNode,
   WorkflowConnection,
   WorkflowNodeType,
+  CodeNodeConfig,
+  OutputNodeConfig,
 } from '../../types/workflow';
 
 interface WorkflowBuilderProps {
@@ -775,7 +777,7 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Language</label>
                   <select
-                    value={selectedNode.config.language}
+                    value={(selectedNode.config as CodeNodeConfig).language}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, language: e.target.value }
                     })}
@@ -789,7 +791,7 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Code</label>
                   <textarea
-                    value={selectedNode.config.code}
+                    value={(selectedNode.config as CodeNodeConfig).code}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, code: e.target.value }
                     })}
@@ -805,7 +807,7 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Output Format</label>
                   <select
-                    value={selectedNode.config.outputFormat}
+                    value={(selectedNode.config as OutputNodeConfig).outputFormat}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, outputFormat: e.target.value as 'text' | 'json' | 'markdown' | 'html' }
                     })}
@@ -820,7 +822,7 @@ export function WorkflowBuilder({
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Output Template</label>
                   <textarea
-                    value={(selectedNode.config as any).template || ''}
+                    value={(selectedNode.config as OutputNodeConfig).template || ''}
                     onChange={(e) => updateNode(selectedNode.id, {
                       config: { ...selectedNode.config, template: e.target.value }
                     })}
