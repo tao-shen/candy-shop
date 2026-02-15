@@ -1553,8 +1553,10 @@ export function SkillExecutor({ skill, onClose }: SkillExecutorProps) {
       category: skill.category,
       icon: skill.icon,
       color: skill.color,
-      config: skill.config,
-      systemPrompt: skillInstructions || skill.config?.systemPrompt || skill.description,
+      config: {
+        ...skill.config,
+        systemPrompt: skillInstructions || skill.config?.systemPrompt || skill.description,
+      },
       origin: 'created' as const,
     });
     setShowEditModal(true);
@@ -2339,11 +2341,10 @@ export function SkillExecutor({ skill, onClose }: SkillExecutorProps) {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">System Prompt</label>
                 <textarea
-                  value={editingSkill.systemPrompt || editingSkill.config?.systemPrompt || ''}
+                  value={editingSkill.config?.systemPrompt || ''}
                   onChange={(e) => setEditingSkill({
                     ...editingSkill,
-                    systemPrompt: e.target.value,
-                    config: { ...editingSkill.config, systemPrompt: e.target.value }
+                    config: { ...editingSkill.config!, systemPrompt: e.target.value }
                   })}
                   rows={6}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none font-mono text-sm"
