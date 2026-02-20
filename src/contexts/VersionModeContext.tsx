@@ -11,7 +11,7 @@ const VersionModeContext = createContext<VersionModeContextType | undefined>(und
 export function VersionModeProvider({ children }: { children: any }) {
   const [mode, setMode] = useState<'dev' | 'user'>(() => {
     const saved = localStorage.getItem('versionMode');
-    return (saved === 'user' || saved === 'dev') ? saved : 'dev';
+    return (saved === 'user' || saved === 'dev') ? saved : 'user';
   });
 
   useEffect(() => {
