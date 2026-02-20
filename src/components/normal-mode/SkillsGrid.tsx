@@ -1,6 +1,7 @@
 import { Search, Heart, ShoppingBag, Check, Play, Star, Github } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { SKILLS_DATA, type Skill } from '../../data/skillsData';
+import { getCandyEmoji } from '../../utils/candy';
 import { SkillModal } from '../common/SkillModal';
 import { storageUtils } from '../../utils/storage';
 import { toast } from 'sonner';
@@ -219,7 +220,7 @@ export function NormalSkillsGrid({
                     {/* Header with icon and category */}
                     <div className="flex items-start gap-3 mb-3">
                       <div className={`w-11 h-11 rounded-lg ${colors.bg} ${colors.border} border flex items-center justify-center text-xl flex-shrink-0 transition-all group-hover:scale-110`}>
-                        {skill.icon}
+                        <span className="animate-candy-float inline-block">{getCandyEmoji(skill.id)}</span>
                       </div>
                       <div className="min-w-0 flex-1">
                         <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">

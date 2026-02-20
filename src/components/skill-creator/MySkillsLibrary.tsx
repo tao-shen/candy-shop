@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Search, Plus, Trash2, Play, Calendar, Filter, ArrowLeft, Package } from 'lucide-react';
 import { storageUtils } from '../../utils/storage';
+import { getCandyEmoji } from '../../utils/candy';
 import type { Skill, SkillCategory } from '../../types/skill-creator';
 import { SKILLS_DATA } from '../../data/skillsData';
 
@@ -327,7 +328,7 @@ export function MySkillsLibrary({ onCreateNew, onUseSkill, onBack }: MySkillsLib
               {/* Content */}
               <div className="p-5">
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="text-3xl">{skill.icon}</div>
+                  <div className="text-3xl animate-candy-float">{getCandyEmoji(skill.id)}</div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-bold text-foreground truncate">
                       {skill.name}

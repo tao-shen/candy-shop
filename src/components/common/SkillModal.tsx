@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import type { Skill } from '../../data/skillsData';
 import { toast } from 'sonner';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
+import { getCandyEmoji } from '../../utils/candy';
 
 const getCategoryModalColor = (category: string): { bg: string; border: string } => {
   const map: Record<string, { bg: string; border: string }> = {
@@ -96,7 +97,7 @@ export function SkillModal({ skill, onClose, onRun }: SkillModalProps) {
             <X className="w-5 h-5 text-foreground-secondary" />
           </button>
 
-          <div className="text-6xl" aria-hidden="true">{skill.icon}</div>
+          <div className="text-6xl animate-candy-float" aria-hidden="true">{getCandyEmoji(skill.id)}</div>
         </div>
 
         {/* Content */}

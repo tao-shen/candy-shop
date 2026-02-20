@@ -8,6 +8,7 @@ import { toast } from 'sonner';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useVersionMode } from '../../contexts/VersionModeContext';
 import { useDebounce } from '../../hooks/useDebounce';
+import { CANDY_EMOJIS } from '../../utils/candy';
 
 interface SkillsGridProps {
   searchQuery: string;
@@ -32,8 +33,6 @@ const getCategoryColor = (category: string) => {
   };
   return colors[category] || { bg: 'bg-gray-500/10', text: 'text-gray-400', border: 'border-gray-500/20', solid: 'bg-gray-500' };
 };
-
-const CANDY_EMOJIS = ['🍭', '🍬', '🧁', '🍫', '🍰'];
 
 const POPULAR_TAGS = (() => {
   const tagCounts: Record<string, number> = {};
