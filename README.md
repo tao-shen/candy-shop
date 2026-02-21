@@ -7,76 +7,139 @@ sdk: docker
 pinned: false
 ---
 
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🍭 Candy Shop
 
-Currently, two official plugins are available:
+**The Open-Source AI Skill Marketplace**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Browse, run, create, and share AI agent skills — all in one place.
 
-## React Compiler
+[![Live Demo](https://img.shields.io/badge/🤗_HuggingFace-Live_Demo-yellow?style=for-the-badge)](https://huggingface.co/spaces/tao-shen/candy-shop)
+[![GitHub](https://img.shields.io/badge/GitHub-Source_Code-black?style=for-the-badge&logo=github)](https://github.com/tao-shen/candy-shop)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+</div>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## What is Candy Shop?
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Candy Shop is an open-source marketplace for **AI agent skills** — reusable prompt instructions (defined in `SKILL.md` files) that give AI agents like Claude Code specialized capabilities. Think of it as an app store, but for AI skills.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **230+ curated skills** across 8 categories
+- **Run skills instantly** in the built-in agent executor
+- **Create your own skills** with a visual editor
+- **Community-driven** — contribute skills via GitHub PRs
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Features
+
+### Skill Marketplace
+Browse and search a curated collection of AI skills organized into categories: Development, Design, Tools, Marketing, Mobile, Productivity, Research, and Writing.
+
+### Built-in Skill Executor
+Run any skill directly in the browser with a full-featured chat interface powered by [OpenCode](https://github.com/nichochar/opencode). Supports streaming responses, file attachments, tool use, and interactive Q&A.
+
+### Skill Creator
+Build and publish your own skills with a name, description, system prompt, and configuration — no coding required.
+
+### Multi-Platform
+- **Web** — Hosted on [HuggingFace Spaces](https://huggingface.co/spaces/tao-shen/candy-shop)
+- **Desktop** — Native macOS app built with [Tauri v2](https://v2.tauri.app)
+- **Self-hosted** — Docker-ready for your own infrastructure
+
+### Theming & i18n
+6 color themes (Indigo, Ocean, Emerald, Sunset, Rose, Purple) with dark/light mode. Full English and Chinese localization.
+
+## Quick Start
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) >= 20
+- [pnpm](https://pnpm.io/) >= 10
+
+### Development
+
+```bash
+# Clone the repository
+git clone https://github.com/tao-shen/candy-shop.git
+cd candy-shop
+
+# Install dependencies
+pnpm install
+
+# Start dev server
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm build
 ```
+
+### Docker (HuggingFace Spaces)
+
+```bash
+docker build -t candy-shop .
+docker run -p 7860:7860 candy-shop
+```
+
+### Desktop App (Tauri)
+
+```bash
+pnpm tauri build
+```
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, TypeScript, Tailwind CSS |
+| Build | Vite 7 |
+| Desktop | Tauri v2 (Rust) |
+| Auth | Supabase |
+| AI SDK | Anthropic SDK, OpenCode SDK |
+| Deployment | Docker, HuggingFace Spaces, Vercel |
+
+## Project Structure
+
+```
+candy-shop/
+├── src/
+│   ├── components/       # React components
+│   │   ├── home/         # Landing page sections (Hero, FAQ, etc.)
+│   │   ├── skill-creator/# Skill creator & executor
+│   │   └── ui/           # Shared UI components
+│   ├── contexts/         # React contexts (Auth, Language, Theme)
+│   ├── data/             # Skills catalog data
+│   └── lib/              # API clients (OpenCode, Supabase)
+├── src-tauri/            # Tauri native app config
+├── public/               # Static assets & illustrations
+├── Dockerfile            # HuggingFace Spaces deployment
+└── package.json
+```
+
+## Contributing
+
+Contributions are welcome! Here are some ways to get involved:
+
+- **Add a skill** — Submit a PR with a new skill entry in `src/data/skillsData.ts`
+- **Fix bugs** — Check the [Issues](https://github.com/tao-shen/candy-shop/issues) tab
+- **Improve UI/UX** — Design contributions are always appreciated
+- **Translate** — Help us add more languages
+
+## License
+
+MIT
+
+---
+
+<div align="center">
+
+**AI is simple like candy** 🍬
+
+[Live Demo](https://huggingface.co/spaces/tao-shen/candy-shop) · [GitHub](https://github.com/tao-shen/candy-shop) · [Report Bug](https://github.com/tao-shen/candy-shop/issues)
+
+</div>

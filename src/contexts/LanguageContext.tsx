@@ -116,14 +116,14 @@ const translations: Record<Language, Record<string, string>> = {
 
     // FAQ
     'faq.title': '# Frequently Asked Questions',
-    'faq.q1': 'Is this sugar-free?',
-    'faq.a1': 'We have a dedicated module for sugar-free options. Run `$ npm install @candy/sugar-free` to verify.',
-    'faq.q2': 'Do you ship internationally?',
-    'faq.a2': 'Yes! We deploy happiness globally. Check our shipping manifest for restricted regions.',
-    'faq.q3': 'Can I return open wrappers?',
-    'faq.a3': 'Negative. Once executed, consumption is irreversible. Please review our `REFUND_POLICY.md`.',
-    'faq.q4': 'Bulk API access?',
-    'faq.a4': 'For wholesale orders, please authenticate as an enterprise partner using our Wholesale API.',
+    'faq.q1': 'What is an AI skill?',
+    'faq.a1': 'An AI skill is a reusable prompt instruction (defined in a `SKILL.md` file) that gives your AI agent specialized capabilities — like code review, writing, or design — without any custom code.',
+    'faq.q2': 'How do I use a skill from the marketplace?',
+    'faq.a2': 'Browse or search for a skill, click **Run** to execute it directly in the built-in agent, or copy the install command to add it to your own Claude Code / AI workflow.',
+    'faq.q3': 'Can I create and publish my own skills?',
+    'faq.a3': 'Yes! Go to the **Create** page to build a skill with a name, description, and system prompt. Community contributions are welcome — just submit a PR on GitHub.',
+    'faq.q4': 'Is Candy Shop free and open source?',
+    'faq.a4': 'Absolutely. Candy Shop is 100% open source under MIT license. You can self-host it, contribute skills, or fork it for your own team.',
 
     // Footer
     'footer.tagline': 'AI is simple like candy',
@@ -239,14 +239,14 @@ const translations: Record<Language, Record<string, string>> = {
 
     // FAQ
     'faq.title': '# 常见问题',
-    'faq.q1': '这是无糖的吗？',
-    'faq.a1': '我们有专门的无糖选项模块。运行 `$ npm install @candy/sugar-free` 来验证。',
-    'faq.q2': '你们国际配送吗？',
-    'faq.a2': '是的！我们向全球部署快乐。请查看我们的配送清单了解受限地区。',
-    'faq.q3': '可以退换已拆封的吗？',
-    'faq.a3': '不可以。一旦执行，消费是不可逆的。请查看我们的 `REFUND_POLICY.md`。',
-    'faq.q4': '批量 API 访问？',
-    'faq.a4': '如需批量订购，请使用我们的批发 API 验证为企业合作伙伴。',
+    'faq.q1': '什么是 AI 技能？',
+    'faq.a1': 'AI 技能是一个可复用的提示指令（定义在 `SKILL.md` 文件中），能赋予 AI 代理专业能力——如代码审查、写作或设计——无需编写任何代码。',
+    'faq.q2': '如何使用市场中的技能？',
+    'faq.a2': '浏览或搜索技能，点击 **运行** 即可在内置代理中直接执行，也可以复制安装命令将其添加到你自己的 Claude Code / AI 工作流中。',
+    'faq.q3': '可以创建和发布自己的技能吗？',
+    'faq.a3': '当然可以！前往 **创建** 页面，填写名称、描述和系统提示词即可构建技能。欢迎社区贡献——在 GitHub 上提交 PR 即可。',
+    'faq.q4': 'Candy Shop 是免费开源的吗？',
+    'faq.a4': '是的。Candy Shop 基于 MIT 许可证 100% 开源。你可以自行部署、贡献技能或 Fork 用于自己的团队。',
 
     // Footer
     'footer.tagline': 'AI 简单如糖果',

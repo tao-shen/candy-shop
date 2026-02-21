@@ -851,6 +851,7 @@ export function SkillExecutor({ skill, onClose }: SkillExecutorProps) {
 
   // Chat state
   const [entries, setEntries] = useState<ChatEntry[]>([]);
+  const [greetingEntry, setGreetingEntry] = useState<AssistantEntry | null>(null);
   const [input, setInput] = useState('');
   const [isRunning, setIsRunning] = useState(false);
   const [sessionStatus, setSessionStatus] = useState('');
@@ -981,7 +982,7 @@ export function SkillExecutor({ skill, onClose }: SkillExecutorProps) {
   // ── Greeting: skill introduces itself on first open ─────────────────────
 
   useEffect(() => {
-    if (!connected || connecting || entries.length > 0 || currentSessionId) return;
+    if (!connected || connecting || greetingEntry) return;
     const greeting: AssistantEntry = {
       type: 'assistant',
       messageId: `greeting-${Date.now()}`,
@@ -994,8 +995,8 @@ export function SkillExecutor({ skill, onClose }: SkillExecutorProps) {
       }],
       isComplete: true,
     };
-    setEntries([greeting]);
-  }, [connected, connecting, currentSessionId, entries.length, skill.name, skill.description]);
+    setGreetingEntry(greeting);
+  }, [connected, connecting, greetingEntry, skill.name, skill.description]);
 
   // ── Debug: log activeQuestion state changes ─────────────────────────────
 
@@ -2018,7 +2019,7 @@ export function SkillExecutor({ skill, onClose }: SkillExecutorProps) {
                 </div>
               )}
 
-              {entries.length === 0 && (
+              {!greetingEntry && entries.length === 0 && (
                 <div className="flex flex-col items-center justify-center h-full text-center">
                   <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/15 to-caramel/15 flex items-center justify-center mb-6 ring-1 ring-primary/10 shadow-candy">
                     <Sparkles className="w-10 h-10 text-primary/80" />
@@ -2061,6 +2062,10 @@ export function SkillExecutor({ skill, onClose }: SkillExecutorProps) {
                     Start a conversation
                   </button>
                 </div>
+              )}
+
+              {greetingEntry && (
+                <AssistantMessageView key={greetingEntry.messageId} entry={greetingEntry} />
               )}
 
               {entries.map((entry, i) =>
