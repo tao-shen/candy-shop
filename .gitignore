@@ -31,3 +31,5 @@ src-tauri/Cargo.lock
 
 # Temporary icon generation
 src-tauri/icons/icon.svg
+.vercel
+.env*.local
