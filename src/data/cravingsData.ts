@@ -160,7 +160,7 @@ export const CRAVINGS_DATA: Craving[] = [
     postedBy: 'api_architect',
     postedAt: '2026-03-03T12:00:00Z',
     matchCount: 5,
-    status: 'in-progress',
+    status: 'open',
     emoji: '📝',
   },
   {
