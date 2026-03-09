@@ -1,6 +1,6 @@
-import { Search, ShoppingBag, Check, X, Heart, Play, Star, ChevronLeft, ChevronRight, Plus } from 'lucide-react';
-import { useState, useMemo, useEffect, useRef } from 'react';
-import { SKILLS_DATA, type Skill } from '../../data/skillsData';
+import { Search, ShoppingBag, Check, X, Heart, Play, Star, ChevronLeft, ChevronRight, Plus, Database, ExternalLink, Download } from 'lucide-react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+import { SKILLS_DATA, REGISTRY_STATS, loadFullRegistry, type Skill, type RegistryEntry } from '../../data/skillsData';
 import { SkillModal } from '../common/SkillModal';
 import { storageUtils } from '../../utils/storage';
 import { cn } from '../../utils/cn';
@@ -268,6 +268,39 @@ export function SkillsGrid({
                   Post Craving
                 </button>
               )}
+            </div>
+          </div>
+
+          {/* Registry Stats Banner */}
+          <div className="mb-8 p-4 glass rounded-xl border border-border/50 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-rose-500/20 to-pink-500/20 flex items-center justify-center text-xl">
+                📦
+              </div>
+              <div>
+                <p className="text-sm font-body font-semibold text-foreground">
+                  Skills Registry Database
+                </p>
+                <p className="text-xs font-mono text-foreground-tertiary">
+                  Synced from skills.sh · Updated {REGISTRY_STATS.lastUpdated}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-6 text-sm font-mono">
+              <div className="text-center">
+                <div className="font-bold text-foreground text-lg">{REGISTRY_STATS.totalSkills.toLocaleString()}</div>
+                <div className="text-foreground-tertiary text-[10px]">SKILLS</div>
+              </div>
+              <div className="w-px h-8 bg-border/50" />
+              <div className="text-center">
+                <div className="font-bold text-foreground text-lg">{REGISTRY_STATS.totalRepos.toLocaleString()}</div>
+                <div className="text-foreground-tertiary text-[10px]">REPOS</div>
+              </div>
+              <div className="w-px h-8 bg-border/50" />
+              <div className="text-center">
+                <div className="font-bold text-foreground text-lg">{(REGISTRY_STATS.totalInstalls / 1e6).toFixed(1)}M</div>
+                <div className="text-foreground-tertiary text-[10px]">INSTALLS</div>
+              </div>
             </div>
           </div>
 
@@ -544,7 +577,277 @@ export function SkillsGrid({
         </div>
       </section>
 
+      {/* ── Full Registry Browser ── */}
+      <RegistryBrowser />
+
       <SkillModal skill={selectedSkill} onClose={() => setSelectedSkill(null)} onRun={onRunSkill} />
     </>
+  );
+}
+
+// ── Registry Browser Component ──────────────────────────────────────────
+const REGISTRY_PAGE_SIZE = 50;
+
+function RegistryBrowser() {
+  const [registry, setRegistry] = useState<RegistryEntry[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [search, setSearch] = useState('');
+  const debouncedSearch = useDebounce(search, 200);
+  const [page, setPage] = useState(0);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  const handleExpand = useCallback(async () => {
+    if (expanded) {
+      setExpanded(false);
+      return;
+    }
+    setExpanded(true);
+    if (!registry) {
+      setLoading(true);
+      try {
+        const data = await loadFullRegistry();
+        setRegistry(data);
+      } catch {
+        toast.error('Failed to load registry');
+      } finally {
+        setLoading(false);
+      }
+    }
+  }, [expanded, registry]);
+
+  const filtered = useMemo(() => {
+    if (!registry) return [];
+    if (!debouncedSearch) return registry;
+    const q = debouncedSearch.toLowerCase();
+    return registry.filter(([name, , source]) =>
+      name.toLowerCase().includes(q) || source.toLowerCase().includes(q)
+    );
+  }, [registry, debouncedSearch]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / REGISTRY_PAGE_SIZE));
+  const pageItems = filtered.slice(page * REGISTRY_PAGE_SIZE, (page + 1) * REGISTRY_PAGE_SIZE);
+
+  useEffect(() => { setPage(0); }, [debouncedSearch]);
+
+  const goPage = (p: number) => {
+    setPage(Math.max(0, Math.min(p, totalPages - 1)));
+    listRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const formatInstalls = (n: number) => {
+    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+    if (n >= 1_000) return `${(n / 1_000).toFixed(n >= 10_000 ? 0 : 1)}K`;
+    return String(n);
+  };
+
+  return (
+    <section className="py-16 bg-background" id="registry-browser" ref={listRef}>
+      <div className="container max-w-7xl mx-auto px-4">
+        {/* Expand/Collapse Header */}
+        <button
+          onClick={handleExpand}
+          className="w-full group"
+        >
+          <div className="flex items-center justify-between p-6 glass rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-warm-lg">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500/20 to-indigo-500/20 flex items-center justify-center border border-violet-500/20">
+                <Database className="w-7 h-7 text-violet-400" />
+              </div>
+              <div className="text-left">
+                <h2 className="text-2xl font-candy font-bold text-foreground">
+                  Skills Registry Database
+                </h2>
+                <p className="text-sm font-mono text-foreground-tertiary mt-1">
+                  {REGISTRY_STATS.totalSkills.toLocaleString()} skills · {REGISTRY_STATS.totalRepos.toLocaleString()} repos · {(REGISTRY_STATS.totalInstalls / 1e6).toFixed(1)}M installs · synced from skills.sh
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-violet-500/10 text-violet-400 text-xs font-mono font-medium border border-violet-500/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                LIVE
+              </span>
+              <ChevronRight className={cn(
+                'w-5 h-5 text-foreground-tertiary transition-transform duration-300',
+                expanded && 'rotate-90'
+              )} />
+            </div>
+          </div>
+        </button>
+
+        {/* Expanded Registry Content */}
+        {expanded && (
+          <div className="mt-6 space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+            {/* Search */}
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground-tertiary" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder={`Search ${REGISTRY_STATS.totalSkills.toLocaleString()} skills...`}
+                className={cn(
+                  'w-full h-12 pl-11 pr-4 glass border border-border/50 rounded-xl text-sm font-mono',
+                  'focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-500/30',
+                  'transition-all placeholder:text-foreground-tertiary'
+                )}
+              />
+              {search && (
+                <button
+                  onClick={() => setSearch('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-md hover:bg-secondary/70 text-foreground-tertiary"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Results count */}
+            <div className="flex items-center justify-between text-xs font-mono text-foreground-tertiary px-1">
+              <span>
+                {loading ? 'Loading registry...' : `${filtered.length.toLocaleString()} skills found`}
+              </span>
+              {filtered.length > 0 && (
+                <span>Page {page + 1} / {totalPages.toLocaleString()}</span>
+              )}
+            </div>
+
+            {/* Loading state */}
+            {loading && (
+              <div className="flex flex-col items-center justify-center py-16 gap-4">
+                <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center animate-pulse">
+                  <Database className="w-6 h-6 text-violet-400" />
+                </div>
+                <p className="text-sm font-mono text-foreground-tertiary">Loading {REGISTRY_STATS.totalSkills.toLocaleString()} skills...</p>
+              </div>
+            )}
+
+            {/* Skills Table */}
+            {!loading && filtered.length > 0 && (
+              <div className="glass rounded-xl border border-border/50 overflow-hidden">
+                {/* Table Header */}
+                <div className="grid grid-cols-[1fr_auto_auto] sm:grid-cols-[1fr_1fr_auto_auto] gap-4 px-4 py-3 bg-secondary/30 border-b border-border/30 text-[11px] font-mono font-semibold text-foreground-tertiary uppercase tracking-wider">
+                  <span>Skill</span>
+                  <span className="hidden sm:block">Source</span>
+                  <span className="text-right">Installs</span>
+                  <span className="text-right w-16">Action</span>
+                </div>
+
+                {/* Table Body */}
+                <div className="divide-y divide-border/20">
+                  {pageItems.map(([name, installs, source], i) => (
+                    <div
+                      key={`${source}/${name}-${i}`}
+                      className="grid grid-cols-[1fr_auto_auto] sm:grid-cols-[1fr_1fr_auto_auto] gap-4 px-4 py-3 hover:bg-secondary/20 transition-colors group items-center"
+                    >
+                      {/* Skill name */}
+                      <div className="min-w-0">
+                        <p className="font-mono text-sm text-foreground truncate font-medium">
+                          {name}
+                        </p>
+                        <p className="text-[11px] text-foreground-tertiary font-mono truncate sm:hidden">
+                          {source}
+                        </p>
+                      </div>
+
+                      {/* Source repo */}
+                      <a
+                        href={`https://github.com/${source}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-foreground-tertiary hover:text-violet-400 transition-colors truncate min-w-0"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <span className="truncate">{source}</span>
+                        <ExternalLink className="w-3 h-3 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </a>
+
+                      {/* Installs */}
+                      <div className="text-right">
+                        <span className="inline-flex items-center gap-1 text-xs font-mono text-foreground-secondary">
+                          <Download className="w-3 h-3" />
+                          {formatInstalls(installs)}
+                        </span>
+                      </div>
+
+                      {/* Install button */}
+                      <div className="text-right w-16">
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(`npx skills add ${source}/${name}`);
+                            toast.success('Install command copied!');
+                          }}
+                          className="px-2.5 py-1.5 text-[11px] font-mono font-medium rounded-lg bg-violet-500/10 text-violet-400 border border-violet-500/20 hover:bg-violet-500/20 transition-all btn-press"
+                        >
+                          Copy
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Pagination */}
+            {!loading && totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 pt-4">
+                <button
+                  onClick={() => goPage(0)}
+                  disabled={page === 0}
+                  className={cn('px-3 py-1.5 text-xs font-mono rounded-lg transition-all btn-press',
+                    page === 0 ? 'text-foreground-muted cursor-not-allowed' : 'text-foreground-secondary hover:bg-secondary/70'
+                  )}
+                >
+                  First
+                </button>
+                <button
+                  onClick={() => goPage(page - 1)}
+                  disabled={page === 0}
+                  className={cn('p-1.5 rounded-lg transition-all btn-press',
+                    page === 0 ? 'text-foreground-muted cursor-not-allowed' : 'text-foreground-secondary hover:bg-secondary/70'
+                  )}
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <span className="px-4 py-1.5 text-xs font-mono font-medium glass rounded-lg border border-border/30">
+                  {page + 1} / {totalPages.toLocaleString()}
+                </span>
+
+                <button
+                  onClick={() => goPage(page + 1)}
+                  disabled={page === totalPages - 1}
+                  className={cn('p-1.5 rounded-lg transition-all btn-press',
+                    page === totalPages - 1 ? 'text-foreground-muted cursor-not-allowed' : 'text-foreground-secondary hover:bg-secondary/70'
+                  )}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => goPage(totalPages - 1)}
+                  disabled={page === totalPages - 1}
+                  className={cn('px-3 py-1.5 text-xs font-mono rounded-lg transition-all btn-press',
+                    page === totalPages - 1 ? 'text-foreground-muted cursor-not-allowed' : 'text-foreground-secondary hover:bg-secondary/70'
+                  )}
+                >
+                  Last
+                </button>
+              </div>
+            )}
+
+            {/* Empty search state */}
+            {!loading && filtered.length === 0 && registry && (
+              <div className="flex flex-col items-center py-12 gap-3">
+                <Search className="w-8 h-8 text-foreground-tertiary" />
+                <p className="text-sm font-mono text-foreground-tertiary">
+                  No skills match "{search}"
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </section>
   );
 }

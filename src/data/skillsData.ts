@@ -24,6 +24,54 @@ export interface Skill {
   greeting?: string;
 }
 
+// ── Registry types (compact format from skills.sh) ──────────────────
+// Each entry is [name, installs, source_repo]
+export type RegistryEntry = [string, number, string];
+
+export interface RegistryStats {
+  totalSkills: number;
+  totalInstalls: number;
+  totalRepos: number;
+  lastUpdated: string;
+}
+
+// Pre-computed stats from the full 88K+ skills registry
+export const REGISTRY_STATS: RegistryStats = {
+  totalSkills: 88360,
+  totalInstalls: 12617035,
+  totalRepos: 11622,
+  lastUpdated: '2026-03-09',
+};
+
+// Lazy-load the full registry (4.4MB compact JSON)
+let _registryCache: RegistryEntry[] | null = null;
+export async function loadFullRegistry(): Promise<RegistryEntry[]> {
+  if (_registryCache) return _registryCache;
+  const mod = await import('./skills-registry.json');
+  _registryCache = mod.default as RegistryEntry[];
+  return _registryCache;
+}
+
+// Convert a registry entry to a display-friendly Skill object
+export function registryEntryToSkill(entry: RegistryEntry): Skill {
+  const [name, installs, source] = entry;
+  const [owner, repo] = source.split('/');
+  return {
+    id: `${source}/${name}`,
+    name: name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+    description: `Skill from ${source}`,
+    category: 'Tools' as SkillCategory,
+    icon: '📦',
+    color: 'bg-gray-100 border-gray-200 text-gray-700',
+    installCommand: `npx skills add ${source}/${name}`,
+    tags: [],
+    popularity: installs,
+    repo: source,
+    skillMdUrl: `https://raw.githubusercontent.com/${owner}/${repo}/main/${name}/SKILL.md`,
+    config: {},
+  };
+}
+
 // Helper to build raw GitHub URL for SKILL.md
 const mdUrl = (owner: string, repo: string, skill?: string) =>
   skill
